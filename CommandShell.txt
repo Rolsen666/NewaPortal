@@ -1,0 +1,41 @@
+1. us1 = User.objects.create_user('Pavel')
+   us2 = User.objects.create_user('Anna')
+
+2. Author.objects.create(authorUser = us1)
+   Author.objects.create(authorUser = us2)
+
+3. Category.objects.create(name='sport')
+   Category.objects.create(name='business')
+   Category.objects.create(name='travel')
+   Category.objects.create(name='cinema')
+
+4. author=Author.objects.get(id=1)
+   author
+   Post.objects.create(author=author, fieldChoice='AR', header='Баскетбол', text='Моя любимая игра!')
+   Post.objects.create(author=author, fieldChoice='NW', header='Марвел', text='В 2022 году выйдет новый фильм киновселенной')
+   author2=Author.objects.get(id=2)
+   author2
+   Post.objects.create(author=author, fieldChoice='AR', header='Поездка в Магадан', text='Еду в Магадан, золотую сталицу Колымы')
+    Post.objects.create(author=author2, fieldChoice='AR', header='Поездка в Магадан', text='Еду в Магадан, золотую сталицу Колымы')
+
+5. Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1))
+   Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1))
+   Post.objects.get(id=2).postCategory.add(Category.objects.get(id=2))
+   Post.objects.get(id=2).postCategory.add(Category.objects.get(id=2))
+   Post.objects.get(id=3).postCategory.add(Category.objects.get(id=3))
+   Post.objects.get(id=3).postCategory.add(Category.objects.get(id=3))
+
+6. Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1).authorUser, text='Любимая игра')
+   Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=2).authorUser, text=':)))))!')
+   Comment.objects.create(commentPost=Post.objects.get(id=3), commentUser=Author.objects.get(id=2).authorUser, text='класс')
+
+7. Comment.objects.get(id=2).like()
+   Comment.objects.get(id=2).like()
+   Comment.objects.get(id=3).dislike()
+   Comment.objects.get(id=1).like()
+   Post.objects.get(id=2).dislike()
+   Post.objects.get(id=3).like()
+   Post.objects.get(id=1).like()
+   Post.objects.get(id=1).like()
+   
+8. 
